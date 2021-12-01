@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import dj_database_url
+
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'django_filters',
     'rest_framework',
     'djoser',
@@ -95,13 +98,15 @@ WSGI_APPLICATION = 'ec_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'storefront_db3',
-        'USER': 'postgres',
-        'PASSWORD': 'rabin',
-        'HOST': '127.0.0.1',
-        'PORT': '5430',
+        'NAME': 'dd9s2n2objql8u',
+        'USER': 'phzlbvpqsxwbma',
+        'PASSWORD': 'fb6991e25afda11e2d21e620c27c19a732e0e27fa87b56efa0dc5d982b125f38',
+        'HOST': 'ec2-34-193-235-32.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 
@@ -175,3 +180,5 @@ DJOSER ={
         'current_user':'core.serializers.UserSerializer'
     }
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
