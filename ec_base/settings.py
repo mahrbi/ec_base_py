@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-hs6j037urx6iav+7#10%-vu4l4f5@@-1_zo)oft4g7$vf2$jmp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','ecbasepy.herokuapp.com']
+ALLOWED_HOSTS = ['ecbasepy.herokuapp.com']
 
 
 # Application definition
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'djoser',
     'playground',
     'core',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'store',
     'store_custom',
     'tags',
@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
